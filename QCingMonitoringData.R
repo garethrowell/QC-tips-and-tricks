@@ -2,12 +2,11 @@
 # -----------------------
 # QCing monitoring data
 # R tidyverse version
-# Gareth Rowell 2/14/2025
+# Gareth Rowell 3/14/2025
 # -----------------------
 
 
 library(tidyverse)
-library(lubridate)
 
 # Step 1 - loading the data
 
@@ -40,13 +39,13 @@ df |> group_by(Rain) |> count()
 
 # Step 5 - create bar charts for dates and numerical columns
 
-df2 <- df |> select(EventDateTime, Temperature_C, Distance) |>
-	filter(Temperature_C > -9999) |>
-	filter(Distance > -9999) |>
+
+df2 <- df |> select(EventDateTime) |>
     mutate(
 	obs_date = as.Date(EventDateTime),
 	obs_time = hms::as_hms(EventDateTime)
 	)
+	
 	
 ggplot(df2, aes(x = obs_date)) +
     geom_histogram()
@@ -54,10 +53,20 @@ ggplot(df2, aes(x = obs_date)) +
 ggplot(df2, aes(x = obs_time)) +
     geom_histogram()	
 	
-ggplot(df2, aes(x = Temperature_C)) +
+	
+df3 <- df |> select(Temperature_C) |>
+	filter(Temperature_C > -9999) 
+
+
+ggplot(df3, aes(x = Temperature_C)) +
     geom_histogram()
 
-ggplot(df2, aes(x = Distance)) +
+
+df4 <- df |> select(Distance) |>
+	filter(Distance > -9999) 
+
+	
+ggplot(df4, aes(x = Distance)) +
     geom_histogram()
 
 
