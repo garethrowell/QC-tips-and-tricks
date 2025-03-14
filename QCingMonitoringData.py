@@ -38,14 +38,12 @@ df.groupby("Rain").size()
 
 # Step 5 - create bar charts for dates and numerical columns
 
-# Dates are complicated by type conversion and explicitly generating counts 
+# Dates required type conversion and explicitly generating counts 
 
 df["EventDateTime"] = pd.to_datetime(df["EventDateTime"], errors='coerce')
 
 df["EventDate"] = df["EventDateTime"].dt.date
 df["EventHour"] = df["EventDateTime"].dt.hour 
-
-# Create counts manually
 
 date_counts = df["EventDate"].value_counts().sort_index()
 time_counts = df["EventHour"].value_counts().sort_index()
