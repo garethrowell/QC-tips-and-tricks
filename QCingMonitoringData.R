@@ -60,11 +60,7 @@ ggplot(df2, aes(x = Temperature_C)) +
 ggplot(df2, aes(x = Distance)) +
     geom_histogram()
 
-	
-	
 
-
-	
 
 
 
