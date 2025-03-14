@@ -75,7 +75,7 @@ plt.show()
 # Filter rows where Distance > -9999
 filtered_df = df[df["Distance"] > -9999]
 
-# Plot a histogram of the filtered Temperature_C column
+# Plot a histogram of the filtered Distance column
 plt.hist(filtered_df["Distance"], bins=100, color="skyblue", edgecolor="black")
 plt.title("Histogram of Filtered Distance (°C)")
 plt.xlabel("Distance (m)")
