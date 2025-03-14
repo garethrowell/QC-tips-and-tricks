@@ -70,15 +70,3 @@ ggplot(df4, aes(x = Distance)) +
     geom_histogram()
 
 
-
-
-
-
-
-
-
-
-
-
-	
-	
