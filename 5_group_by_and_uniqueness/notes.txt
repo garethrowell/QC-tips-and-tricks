@@ -1,1 +1,0 @@
-Place group_by and count examples here
